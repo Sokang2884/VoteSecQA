@@ -6,6 +6,7 @@ import { ethers, BrowserProvider, Contract } from "ethers";
 // Adjust path based on Hardhat artifacts location or copy the abi here.
 import VotingArtifact from "../contracts/Voting.json";
 
+// TODO: Update CONTRACT_ADDRESS after deploying to Polygon Amoy Testnet
 const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const ABI = VotingArtifact.abi;
 
@@ -51,7 +52,7 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
         if (window.ethereum?.request) {
           await window.ethereum.request({
             method: 'wallet_switchEthereumChain',
-            params: [{ chainId: '0x539' }], // 1337 in hex
+            params: [{ chainId: '0x13882' }], // 80002 in hex for Polygon Amoy
           });
         }
       } catch (switchError: any) {
@@ -63,12 +64,12 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
                 method: 'wallet_addEthereumChain',
                 params: [
                   {
-                    chainId: '0x539', // 1337
-                    chainName: 'Hardhat Local',
-                    rpcUrls: ['http://127.0.0.1:8545/'],
+                    chainId: '0x13882', // 80002
+                    chainName: 'Polygon Amoy Testnet',
+                    rpcUrls: ['https://rpc-amoy.polygon.technology/'],
                     nativeCurrency: {
-                      name: 'ETH',
-                      symbol: 'ETH',
+                      name: 'POL',
+                      symbol: 'POL',
                       decimals: 18,
                     },
                   },
