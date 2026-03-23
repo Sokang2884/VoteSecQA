@@ -6,8 +6,8 @@ import { ethers, BrowserProvider, Contract } from "ethers";
 // Adjust path based on Hardhat artifacts location or copy the abi here.
 import VotingArtifact from "../contracts/Voting.json";
 
-// TODO: Update CONTRACT_ADDRESS after deploying to Polygon Amoy Testnet
-const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+// Updated to the Polygon Amoy testnet deployment address
+const CONTRACT_ADDRESS = "0xAe838B7C7C0EE350a86E9Ff849Dc68f8C9D89A74";
 const ABI = VotingArtifact.abi;
 
 interface Web3State {
