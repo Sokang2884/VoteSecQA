@@ -48,29 +48,33 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
       
       // Auto-switch to Local Hardhat Network
       try {
-        await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x539' }], // 1337 in hex
-        });
+        if (window.ethereum?.request) {
+          await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: '0x539' }], // 1337 in hex
+          });
+        }
       } catch (switchError: any) {
         // This error code indicates that the chain has not been added to MetaMask.
         if (switchError.code === 4902) {
           try {
-            await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
-              params: [
-                {
-                  chainId: '0x539', // 1337
-                  chainName: 'Hardhat Local',
-                  rpcUrls: ['http://127.0.0.1:8545/'],
-                  nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
-                    decimals: 18,
+            if (window.ethereum?.request) {
+              await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [
+                  {
+                    chainId: '0x539', // 1337
+                    chainName: 'Hardhat Local',
+                    rpcUrls: ['http://127.0.0.1:8545/'],
+                    nativeCurrency: {
+                      name: 'ETH',
+                      symbol: 'ETH',
+                      decimals: 18,
+                    },
                   },
-                },
-              ],
-            });
+                ],
+              });
+            }
           } catch (addError) {
             console.error(addError);
           }
@@ -108,14 +112,14 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
     initWeb3(false);
     
     if (window.ethereum) {
-      window.ethereum.on("accountsChanged", () => initWeb3(false));
-      window.ethereum.on("chainChanged", () => window.location.reload());
+      window.ethereum.on?.("accountsChanged", () => initWeb3(false));
+      window.ethereum.on?.("chainChanged", () => window.location.reload());
     }
     
     return () => {
       if (window.ethereum) {
-        window.ethereum.removeAllListeners("accountsChanged");
-        window.ethereum.removeAllListeners("chainChanged");
+        window.ethereum.removeAllListeners?.("accountsChanged");
+        window.ethereum.removeAllListeners?.("chainChanged");
       }
     };
   }, []);
