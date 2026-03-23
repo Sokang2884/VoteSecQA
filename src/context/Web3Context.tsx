@@ -44,7 +44,7 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
       if (requestAccess) setIsConnecting(true);
       setError(null);
       
-      const browserProvider = new ethers.BrowserProvider(window.ethereum);
+      const browserProvider = new ethers.BrowserProvider(window.ethereum as any);
       
       // Auto-switch to Local Hardhat Network
       try {
