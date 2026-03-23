@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { ethers, BrowserProvider, Contract } from "ethers";
 
 // Adjust path based on Hardhat artifacts location or copy the abi here.
-import VotingArtifact from "../../artifacts/contracts/Voting.sol/Voting.json";
+import VotingArtifact from "../contracts/Voting.json";
 
 const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const ABI = VotingArtifact.abi;
