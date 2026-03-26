@@ -1,0 +1,23 @@
+[dotenv@17.3.1] injecting env (2) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Hardhat version 2.28.6
+
+Usage: hardhat [GLOBAL OPTIONS] ignition deploy [--default-sender <STRING>] [--deployment-id <STRING>] [--parameters <STRING>] [--reset] [--strategy <STRING>] [--verify] [--write-localhost-deployment] modulePath
+
+OPTIONS:
+
+  --default-sender            	Set the default sender for the deployment 
+  --deployment-id             	Set the id of the deployment 
+  --parameters                	A relative path to a JSON file to use for the module parameters 
+  --reset                     	Wipes the existing deployment state before deploying 
+  --strategy                  	Set the deployment strategy to use (default: "basic")
+  --verify                    	Verify the deployment on Etherscan 
+  --write-localhost-deployment	Write deployment information to disk when deploying to the in-memory network 
+
+POSITIONAL ARGUMENTS:
+
+  modulePath	The path to the module file to deploy 
+
+deploy: Deploy a module to the specified network
+
+For global options help run: hardhat help
+

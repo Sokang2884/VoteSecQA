@@ -22,7 +22,7 @@ const VotingModule = buildModule("VotingModule", (m) => {
     "bafkreihga5dy2pditscdj7hcctb3w4v57eclwcht6j43o3izxzcjqdtsgm"
   ];
 
-  const durationInMinutes = 24 * 60; // 24 hours
+  const durationInMinutes = 7 * 24 * 60; // 1 week (7 days)
 
   const voting = m.contract("Voting", [names, parties, imageHashes, durationInMinutes]);
 
